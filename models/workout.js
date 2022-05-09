@@ -12,13 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Workout.belongsTo(models.Day, {
-        as: 'days',
+        as: 'dayWorkout',
         foreignKey: 'workout_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
       Workout.belongsTo(models.User, {
-        as: 'users',
+        as: 'userWorkout',
         foreignKey: 'workout_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
@@ -36,6 +36,15 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: 'CASCADE',
       reference: {
         model: 'Day',
+        key: 'id'
+      }
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
+      reference: {
+        model: 'User',
         key: 'id'
       }
     }

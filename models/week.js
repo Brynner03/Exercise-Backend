@@ -26,8 +26,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Week.init({
-    name: DataTypes.STRING
-  }, {
+    name: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
+      reference: {
+        model: 'user',
+        key: 'id'
+      }
+    } 
+  },
+    {
     sequelize,
     modelName: 'Week',
     tableName: 'weeks'

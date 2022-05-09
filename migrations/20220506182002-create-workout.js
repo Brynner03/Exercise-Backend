@@ -23,14 +23,15 @@ module.exports = {
       day_id: {
         type: Sequelize.INTEGER
       },
+      user_id: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
-        field: 'created_at',
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date()
       },
       updatedAt: {
-        field: 'updated_at',
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date()

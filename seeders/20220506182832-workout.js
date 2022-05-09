@@ -10,8 +10,9 @@ module.exports = {
           reps: 12,
           weight: 150,
           day_id: 1,
-          created_at: new Date(),
-          updated_at: new Date()
+          user_id: 1,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           name: "Squat",
@@ -19,8 +20,9 @@ module.exports = {
           reps: 12,
           weight: 240,
           day_id: 1,
-          created_at: new Date(),
-          updated_at: new Date()
+          user_id: 1,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}

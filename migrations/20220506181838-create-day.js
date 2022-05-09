@@ -17,6 +17,9 @@ module.exports = {
       week_id: {
         type: Sequelize.INTEGER
       },
+      user_id: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         field: 'created_at',
         allowNull: false,

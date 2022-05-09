@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE',
       })
       Day.hasMany(models.Workout, {
-        as: 'days',
+        as: 'workoutForDay',
         foreignKey: 'workout_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
@@ -52,6 +52,15 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: 'CASCADE',
       reference: {
         model: 'week',
+        key: 'id'
+      }
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
+      reference: {
+        model: 'user',
         key: 'id'
       }
     }
