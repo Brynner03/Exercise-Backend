@@ -12,19 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Workout.belongsTo(models.Day, {
-        as: 'workouts',
+        as: 'days',
         foreignKey: 'workout_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
-      Workout.hasMany(models.Day, {
-        as: 'day',
-        foreignKey: 'day_id',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
-      })
       Workout.belongsTo(models.User, {
-        as: 'workouts',
+        as: 'users',
         foreignKey: 'workout_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',

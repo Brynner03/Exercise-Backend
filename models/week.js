@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE',
       })
       Week.belongsTo(models.User, {
-        as: 'weeks',
+        as: 'users',
         foreignKey: 'week_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasMany(models.Week, {
-        as: 'weeks',
+        as: 'week',
         foreignKey: 'week_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
