@@ -23,6 +23,12 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       })
+      Workout.belongsTo(models.User, {
+        as: 'workouts',
+        foreignKey: 'workout_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      })
     }
   }
   Workout.init({

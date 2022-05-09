@@ -2,8 +2,9 @@
 const {
   Model
 } = require('sequelize');
+const users = require('./users');
 module.exports = (sequelize, DataTypes) => {
-  class Day extends Model {
+  class User extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,30 +12,46 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Day.belongsTo(models.Week, {
-        as: 'days',
-        foreignKey: 'day_id',
+      User.hasMany(models.Week, {
+        as: 'weeks',
+        foreignKey: 'week_id',
         onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onUpdate: 'CASCADE'
       })
-      Day.belongsTo(models.User, {
-        as: 'days',
-        foreignKey: 'day_id',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
-      })
-      Day.hasMany(models.Workout, {
+      User.hasMany(models.Workout, {
         as: 'workouts',
         foreignKey: 'workout_id',
         onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
+      User.hasMany(models.Day, {
+        as: 'days',
+        foreignKey: 'day_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       })
     }
   }
-  Day.init({
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
+  User.init({
+    userName: DataTypes.STRING,
+    password: DataTypes.STRING,
+    day_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
+      reference: {
+        model: 'day',
+        key: 'id'
+      }
+    },
+    week_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      onUPDATE: 'CASCADE',
+      reference: {
+        model: 'week',
+        key: 'id'
+      }
     },
     workout_id:{
       type: DataTypes.INTEGER,
@@ -45,20 +62,11 @@ module.exports = (sequelize, DataTypes) => {
         model: 'workout',
         key: 'id'
       }
-    },
-    week_id: {
-      type: DataTypes.INTEGER,
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE',
-      reference: {
-        model: 'week',
-        key: 'id'
-      }
     }
   }, {
     sequelize,
-    modelName: 'Day',
-    tableName: 'day'
+    modelName: 'User',
+    tableName: 'user'
   });
-  return Day;
+  return User;
 };
