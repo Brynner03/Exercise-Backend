@@ -4,7 +4,7 @@ const middleware = require('../middleware')
 const Login = async (req, res) => {
   try {
     const user = await User.findOne({
-      where: { email: req.body.email },
+      where: { userName: req.body.userName },
       raw: true
     })
     if (
@@ -12,7 +12,7 @@ const Login = async (req, res) => {
       (await middleware.comparePassword(user.password, req.body.password))
     ) {
       let payload = {
-        userName: user.userBame,
+        userName: user.userName,
         id: user.id
       }
       let token = middleware.createToken(payload)
