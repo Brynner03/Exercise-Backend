@@ -24,6 +24,7 @@ const CreateDay = async (req, res) => {
             ...req.body
         }
         let day = await Day.create(dayBody)
+        res.send(day)
     } catch (error) {
         throw error
     }
