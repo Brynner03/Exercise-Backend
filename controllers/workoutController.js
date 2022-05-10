@@ -52,6 +52,17 @@ const DestroyWorkout = async (req, res) => {
         throw error
     }
 }
+const GetWorkoutByUser = async (req, res) => {
+    try {
+        let userId = req.params.user_id
+        const usersWorkout = await Workout.findAll({
+            where: {user_id: userId}
+        })
+        res.send(usersWorkout)
+    } catch (error) {
+        throw error
+    }
+}
 
 
 
@@ -62,5 +73,6 @@ module.exports = {
     GetWorkoutByPk,
     CreateWorkout,
     UpdateWorkout,
-    DestroyWorkout
+    DestroyWorkout,
+    GetWorkoutByUser
 }
