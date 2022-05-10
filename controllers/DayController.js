@@ -11,7 +11,7 @@ const GetAllDays = async (req, res) => {
 const GetDaysByPk = async (req, res) => {
     try {
         const days = await Day.findByPk(req.params.id)
-        res.send(workout)
+        res.send(days)
     } catch (error) {
         throw error
     }
@@ -55,7 +55,7 @@ const DestroyDay = async (req, res) => {
 
 const GetDayByUser = async (req, res) => {
     try {
-        let userId = req.params.id
+        let userId = req.params.user_id
         const usersDay = await Day.findAll({
             where: {user_id: userId}
         })
