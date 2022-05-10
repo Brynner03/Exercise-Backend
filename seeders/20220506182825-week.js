@@ -9,16 +9,18 @@ module.exports = {
           user_id: 1,
           day_id: 1,
           workout_id: 1,
-          created_at: new Date(),
-          updated_at: new Date()
+          week_id: 1,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           name: "Week 2",
           user_id: 1,
           day_id: 1,
           workout_id: 1,
-          created_at: new Date(),
-          updated_at: new Date()
+          week_id: 1,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}
