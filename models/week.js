@@ -23,6 +23,12 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       })
+      Week.hasMany(models.Workout, {
+        as: 'workouts',
+        foreignKey: 'workout_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
     }
   }
   Week.init({
@@ -34,6 +40,24 @@ module.exports = (sequelize, DataTypes) => {
       reference: {
         model: 'user',
         key: 'id'
+      },
+      day_id: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        reference: {
+          model: 'day',
+          key: 'id'
+        }
+      }, 
+      workout_id: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        reference: {
+          model: 'workout',
+          key: 'id'
+        }
       }
     } 
   },

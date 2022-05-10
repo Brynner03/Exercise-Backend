@@ -11,6 +11,8 @@ module.exports = {
           weight: 150,
           day_id: 1,
           user_id: 1,
+          week_id: 1,
+          workout_id: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -21,6 +23,8 @@ module.exports = {
           weight: 240,
           day_id: 1,
           user_id: 1,
+          week_id: 1,
+          workout_id: 1,
           createdAt: new Date(),
           updatedAt: new Date()
         }

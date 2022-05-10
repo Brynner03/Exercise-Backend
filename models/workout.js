@@ -13,15 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Workout.belongsTo(models.Day, {
         as: 'dayWorkout',
-        foreignKey: 'workout_id',
+        foreignKey: 'day_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
       Workout.belongsTo(models.User, {
         as: 'userWorkout',
-        foreignKey: 'workout_id',
+        foreignKey: 'user_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
+      })
+      Workout.belongsTo(models.Week, {
+        as: 'weekWorkout',
+        foreignKey: 'week_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       })
     }
   }
@@ -47,6 +53,20 @@ module.exports = (sequelize, DataTypes) => {
         model: 'User',
         key: 'id'
       }
+    },
+    week_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
+      reference: {
+        model: 'Week',
+        key: 'id'
+      }
+    },
+    workout_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
     }
   }, {
     sequelize,

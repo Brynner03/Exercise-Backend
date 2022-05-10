@@ -13,19 +13,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Week, {
         as: 'week',
-        foreignKey: 'week_id',
+        foreignKey: 'user_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
       User.hasMany(models.Workout, {
         as: 'usersWorkout',
-        foreignKey: 'workout_id',
+        foreignKey: 'user_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
       User.hasMany(models.Day, {
         as: 'days',
-        foreignKey: 'day_id',
+        foreignKey: 'user_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })

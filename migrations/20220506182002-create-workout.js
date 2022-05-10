@@ -26,6 +26,12 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER
       },
+      week_id: {
+        type: Sequelize.INTEGER
+      },
+      workout_id : {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

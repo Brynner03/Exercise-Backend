@@ -10,8 +10,8 @@ module.exports = {
           day_id: 1,
           week_id: 1,
           workout_id: 1,
-          created_at: new Date(),
-          updated_at: new Date()
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
       ],
       {}

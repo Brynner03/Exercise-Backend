@@ -14,6 +14,12 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER
       },
+      day_id: {
+        type: Sequelize.INTEGER
+      },
+      workout_id: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         field: 'created_at',
         allowNull: false,
