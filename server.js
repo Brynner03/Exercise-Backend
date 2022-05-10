@@ -7,6 +7,8 @@ const app = express()
 const AppRouter = require('./routes/AppRouter')
 const WorkoutRouter = require('./routes/WorkoutRouter')
 const UserRouter = require('./routes/UserRouter')
+const DayRouter = require('./routes/DayRouter')
+// const WeekRouter = require('./routes/WeekRouter')
 
 
 const PORT = process.env.PORT || 3023
@@ -20,6 +22,8 @@ app.get('/', (req, res) => res.json({ message: 'Server Works' }))
 app.use('/api', AppRouter)
 app.use('/workout', WorkoutRouter)
 app.use('/user', UserRouter)
+app.use('/day', DayRouter)
+// app.use('/week', WeekRouter)
 
 
 app.listen(PORT, () => console.log(`Server started on port: ${PORT}`))

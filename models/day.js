@@ -63,6 +63,9 @@ module.exports = (sequelize, DataTypes) => {
         model: 'user',
         key: 'id'
       }
+    },
+    day_id: {
+      type: DataTypes.INTEGER
     }
   }, {
     sequelize,
