@@ -3,7 +3,7 @@ const controller = require('../controllers/UserController')
 
 Router.get('/', controller.GetUsers)
 Router.get('/:id', controller.GetUserByPk)
-Router.post('/:id', controller.CreateUser)
+Router.post('/create', controller.CreateUser)
 Router.put('/edit/:id', controller.UpdateUser)
 Router.delete('/:id', controller.DestroyUser)
 
