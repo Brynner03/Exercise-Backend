@@ -1,5 +1,6 @@
 const Router = require('express').Router()
 const controller = require('../controllers/WeekController')
+const middleware = require('../middleware')
 
 Router.get('/', controller.GetAllWeeks)
 Router.get('/:id', controller.GetWeeksByPk)
