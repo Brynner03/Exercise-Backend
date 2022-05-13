@@ -9,4 +9,5 @@ Router.delete('/:id', controller.DestroyWorkout)
 Router.get('/user/:user_id', controller.GetWorkoutByUser)
 
 
+
 module.exports = Router

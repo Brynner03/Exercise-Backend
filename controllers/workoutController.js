@@ -55,8 +55,9 @@ const DestroyWorkout = async (req, res) => {
 const GetWorkoutByUser = async (req, res) => {
     try {
         let userId = req.params.user_id
+        let dayId = req.params.day_id
         const usersWorkout = await Workout.findAll({
-            where: {user_id: userId}
+            where: {user_id: userId }
         })
         res.send(usersWorkout)
     } catch (error) {
