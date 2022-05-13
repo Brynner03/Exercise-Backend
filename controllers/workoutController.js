@@ -57,7 +57,7 @@ const GetWorkoutByUser = async (req, res) => {
         let userId = req.params.user_id
         let dayId = req.params.day_id
         const usersWorkout = await Workout.findAll({
-            where: {user_id: userId }
+            where: {user_id: userId, day_id: dayId}
         })
         res.send(usersWorkout)
     } catch (error) {
